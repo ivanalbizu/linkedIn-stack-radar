@@ -1,0 +1,13 @@
+[
+  {
+    "id": "0000000001",
+    "url": "https://www.linkedin.com/jobs/view/0000000001/",
+    "puesto": "Frontend Engineer - Design Systems",
+    "empresa": "Empresa Ejemplo",
+    "ubicacion": "Remoto",
+    "modalidad": "Remoto",
+    "requisitos": ["Web Components", "TypeScript", "Storybook", "Design Systems"],
+    "encaje": 80,
+    "motivo": "Ejemplo de oferta nueva; si no se indica fecha_escaneo el script pone la de hoy."
+  }
+]
