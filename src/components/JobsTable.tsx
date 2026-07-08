@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Job } from '../types'
 import { CATEGORY_COLOR, categoryOf } from '../data/taxonomy'
 import { useFilter } from '../filter/FilterContext'
@@ -7,29 +7,64 @@ import { CopyPromptButton } from './CopyPromptButton'
 
 type SortKey = 'encaje' | 'empresa' | 'puesto'
 
+const PAGE_SIZE = 10
+
 function scoreClass(encaje: number): string {
   if (encaje >= 70) return 'score score--high'
   if (encaje >= 45) return 'score score--mid'
   return 'score score--low'
 }
 
+/** Normaliza para búsqueda: minúsculas y sin acentos. */
+function normalize(s: string): string {
+  return s
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+}
+
+function matchesQuery(job: Job, query: string): boolean {
+  const haystack = normalize(
+    [job.puesto, job.empresa, job.ubicacion, job.modalidad, job.motivo, ...job.requisitos].join(' '),
+  )
+  // Todas las palabras de la búsqueda deben aparecer (en cualquier campo).
+  return normalize(query)
+    .split(/\s+/)
+    .filter(Boolean)
+    .every((word) => haystack.includes(word))
+}
+
 export function JobsTable({ jobs }: { jobs: Job[] }) {
   const { isVisible, active } = useFilter()
   const [sort, setSort] = useState<{ key: SortKey; asc: boolean }>({ key: 'encaje', asc: false })
+  const [query, setQuery] = useState('')
+  const [page, setPage] = useState(1)
 
-  const rows = useMemo(() => {
-    const filtered =
+  const filtered = useMemo(() => {
+    let result =
       active.size === 0
         ? jobs
         : jobs.filter((j) => j.requisitos.some((t) => isVisible(categoryOf(t))))
+    if (query.trim()) result = result.filter((j) => matchesQuery(j, query))
 
-    return [...filtered].sort((a, b) => {
+    return [...result].sort((a, b) => {
       let cmp: number
       if (sort.key === 'encaje') cmp = a.encaje - b.encaje
       else cmp = String(a[sort.key]).localeCompare(String(b[sort.key]))
       return sort.asc ? cmp : -cmp
     })
-  }, [jobs, active, isVisible, sort])
+  }, [jobs, active, isVisible, query, sort])
+
+  // Al cambiar búsqueda, filtro u orden se vuelve a la primera página.
+  useEffect(() => {
+    setPage(1)
+  }, [query, active, sort])
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
+  const currentPage = Math.min(page, totalPages)
+  const rows = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+  const from = filtered.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1
+  const to = Math.min(currentPage * PAGE_SIZE, filtered.length)
 
   function toggleSort(key: SortKey) {
     setSort((prev) => (prev.key === key ? { key, asc: !prev.asc } : { key, asc: key !== 'encaje' }))
@@ -40,9 +75,17 @@ export function JobsTable({ jobs }: { jobs: Job[] }) {
   return (
     <div className="table-wrap">
       <div className="view-toolbar">
+        <input
+          type="search"
+          className="search"
+          placeholder="Buscar por empresa, puesto, tecnología…"
+          aria-label="Buscar ofertas por empresa o palabras clave"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
         <p className="muted">
-          {rows.length} de {jobs.length} ofertas
-          {active.size > 0 ? ' (filtradas por categoría)' : ''}
+          {from}–{to} de {filtered.length} ofertas
+          {filtered.length !== jobs.length ? ` (${jobs.length} en total)` : ''}
         </p>
         <CopyPromptButton text={JOBS_PROMPT} label="Copiar prompt para buscar ofertas" />
       </div>
@@ -65,6 +108,13 @@ export function JobsTable({ jobs }: { jobs: Job[] }) {
           </tr>
         </thead>
         <tbody>
+          {rows.length === 0 && (
+            <tr>
+              <td colSpan={7} className="muted">
+                Sin resultados para esta búsqueda/filtro.
+              </td>
+            </tr>
+          )}
           {rows.map((job) => (
             <tr key={job.id}>
               <td>
@@ -97,6 +147,38 @@ export function JobsTable({ jobs }: { jobs: Job[] }) {
           ))}
         </tbody>
       </table>
+
+      {totalPages > 1 && (
+        <nav className="pager" aria-label="Paginación de ofertas">
+          <button
+            type="button"
+            className="pager__btn"
+            onClick={() => setPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            ← Anterior
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+            <button
+              key={n}
+              type="button"
+              className={`pager__btn${n === currentPage ? ' pager__btn--active' : ''}`}
+              aria-current={n === currentPage ? 'page' : undefined}
+              onClick={() => setPage(n)}
+            >
+              {n}
+            </button>
+          ))}
+          <button
+            type="button"
+            className="pager__btn"
+            onClick={() => setPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Siguiente →
+          </button>
+        </nav>
+      )}
     </div>
   )
 }
