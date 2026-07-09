@@ -1,4 +1,4 @@
-import { useFilter } from '../filter/FilterContext'
+import { useFilter } from '../filter/useFilter'
 
 /**
  * Selector de escaneo: distingue la demanda viva (último escaneo) del histórico

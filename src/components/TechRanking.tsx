@@ -14,7 +14,7 @@ import { CATEGORY_COLOR } from '../data/taxonomy'
 import { countByTech } from '../lib/aggregations'
 import { buildTechStatus, type TechStatus } from '../lib/profileMatch'
 import { useReducedMotion } from '../lib/useReducedMotion'
-import { useFilter } from '../filter/FilterContext'
+import { useFilter } from '../filter/useFilter'
 import { ChartDataTable } from './ChartDataTable'
 
 /** Nº de tecnologías visibles inicialmente; el resto tras "Mostrar todas". */

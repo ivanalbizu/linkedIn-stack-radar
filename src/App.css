@@ -342,6 +342,26 @@ body {
   margin-top: 12px;
 }
 
+/* ---- Selector de tecnologías (Evolución) ---- */
+.tech-picker {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px 12px;
+  margin: 0 0 16px;
+}
+
+.tech-picker legend {
+  padding: 0 6px;
+  font-size: 12px;
+}
+
+.tech-picker__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
 /* ---- Brechas (ranking × perfil) ---- */
 .mark-have {
   color: #1a7f37;

@@ -10,6 +10,11 @@ adaptarla a su propio perfil — no hay despliegue ni backend.
 **No es** un tracker de candidaturas. El objetivo secundario, igual de real, es practicar React con
 un alcance pequeño. Ver [`CLAUDE.md`](./CLAUDE.md) para el contexto completo.
 
+![Vista de ranking: gráfico de barras horizontales con las tecnologías más pedidas (TypeScript,
+React, HTML/CSS, JavaScript, Angular…), cada barra coloreada por categoría y marcada con ✓ si está
+en el perfil o ✗ si es una carencia declarada. Encima, un resumen de "Top brechas" con React,
+Vue 3, Liderazgo técnico, Cloud y AWS.](docs/img/ranking.png)
+
 ## Pruébala
 
 ```bash
@@ -21,10 +26,17 @@ pnpm dev        # abre http://localhost:5173
 
 Verás 4 pestañas: **Ranking de tecnologías** (nº de ofertas que piden cada una, con marcas
 ✓ ya-la-tengo / ✗ carencia cruzando con el perfil, y un resumen de "top brechas"), **Evolución
-temporal** (% de ofertas por escaneo que piden cada tecnología), **Ofertas** (tabla con buscador,
-paginación, encaje y motivo) y **Mi perfil** (el contexto contra el que se puntúa el encaje).
-Las vistas de datos se pueden filtrar por categoría de tecnología y por **encaje mínimo** (para
-mirar solo las ofertas a las que podrías aspirar).
+temporal** (% de ofertas por escaneo que piden cada tecnología, con selector de cuáles dibujar),
+**Ofertas** (tabla con buscador, paginación, encaje y motivo) y **Mi perfil** (el contexto contra
+el que se puntúa el encaje).
+
+Las vistas de datos se filtran por categoría de tecnología, por **encaje mínimo** (para mirar solo
+las ofertas a las que podrías aspirar) y por **escaneo** (demanda viva del último escaneo frente al
+histórico acumulado).
+
+La app es accesible: navegación completa por teclado (las pestañas siguen el patrón ARIA con
+flechas y Home/End), `aria-sort` en la tabla, alternativa textual de los gráficos para lectores de
+pantalla y respeto a `prefers-reduced-motion`.
 
 Para adaptarla a tu perfil: sustituye `public/jobs.json` y `public/perfil.json` por tus datos
 (esquemas abajo) y ajusta la taxonomía en `src/data/taxonomy.ts`.
@@ -101,12 +113,17 @@ public/jobs.json            # ofertas analizadas (fuente de verdad)
 public/perfil.json          # perfil leído de LinkedIn
 scripts/add-jobs.mjs        # fusión CLI de ofertas nuevas (dedup por id)
 src/types.ts                # tipos Job y Profile
-src/data/taxonomy.ts        # tecnología -> categoría + colores
+src/data/taxonomy.ts        # tecnología -> categoría, colores y alias
 src/data/prompts.ts         # prompts para el plugin de Chrome (fuente de verdad)
 src/lib/aggregations.ts     # conteos y serie temporal normalizada
-src/lib/useJobs.ts          # carga estática de jobs.json
+src/lib/profileMatch.ts     # cruce perfil <-> tecnologías (✓ la tengo / ✗ carencia)
+src/lib/search.ts           # búsqueda de ofertas (sin acentos, todas las palabras)
+src/lib/useJobs.ts          # carga estática de jobs.json (normaliza alias)
 src/lib/useProfile.ts       # carga estática de perfil.json
-src/filter/FilterContext.tsx# filtro por categoría (Context)
-src/components/             # CategoryFilter, TechRanking, TimeEvolution, JobsTable,
-                            # ProfileCard, CopyPromptButton
+src/filter/                 # filtros compartidos por Context (categoría, encaje, escaneo)
+src/components/             # CategoryFilter, EncajeFilter, ScanFilter, TechRanking,
+                            # TimeEvolution, JobsTable, ProfileCard, ChartDataTable,
+                            # CopyPromptButton
 ```
+
+Cada módulo de lógica pura tiene su `*.test.ts` al lado.

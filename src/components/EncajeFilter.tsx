@@ -1,4 +1,4 @@
-import { useFilter } from '../filter/FilterContext'
+import { useFilter } from '../filter/useFilter'
 
 /**
  * Selector de encaje mínimo. Cambia la pregunta que responden las vistas:

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { Job } from '../types'
 import { CATEGORY_COLOR, categoryOf } from '../data/taxonomy'
-import { useFilter } from '../filter/FilterContext'
+import { useFilter } from '../filter/useFilter'
 import { JOBS_PROMPT } from '../data/prompts'
 import { matchesQuery } from '../lib/search'
 import { CopyPromptButton } from './CopyPromptButton'

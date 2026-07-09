@@ -1,5 +1,5 @@
 import { CATEGORY_COLOR, CATEGORY_ORDER } from '../data/taxonomy'
-import { useFilter } from '../filter/FilterContext'
+import { useFilter } from '../filter/useFilter'
 
 /** Chips seleccionables para filtrar por categoría de tecnología. */
 export function CategoryFilter() {
