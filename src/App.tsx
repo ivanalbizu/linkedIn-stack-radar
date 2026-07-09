@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import './App.css'
 import { useJobs } from './lib/useJobs'
 import { useProfile } from './lib/useProfile'
@@ -26,6 +26,21 @@ function App() {
   const { profile } = useProfile()
   const [tab, setTab] = useState<Tab>('ranking')
   const dates = useMemo(() => scanDates(jobs), [jobs])
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+  /** Patrón ARIA de tabs: flechas mueven el foco y activan; Home/End a los extremos. */
+  function onTabKeyDown(e: KeyboardEvent<HTMLButtonElement>, index: number) {
+    const last = TABS.length - 1
+    let next: number | null = null
+    if (e.key === 'ArrowRight') next = index === last ? 0 : index + 1
+    else if (e.key === 'ArrowLeft') next = index === 0 ? last : index - 1
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = last
+    if (next === null) return
+    e.preventDefault()
+    setTab(TABS[next].id)
+    tabRefs.current[next]?.focus()
+  }
 
   return (
     <FilterProvider>
@@ -39,23 +54,38 @@ function App() {
         </header>
 
         {loading && <p className="muted">Cargando ofertas…</p>}
-        {error && <p className="notice notice--error">No se pudo cargar jobs.json: {error}</p>}
+        {error && (
+          <p className="notice notice--error" role="alert">
+            No se pudo cargar jobs.json: {error}
+          </p>
+        )}
 
         {!loading && !error && (
           <>
-            <nav className="tabs" role="tablist">
-              {TABS.map((t) => (
-                <button
-                  key={t.id}
-                  role="tab"
-                  aria-selected={tab === t.id}
-                  className={`tab${tab === t.id ? ' tab--active' : ''}`}
-                  onClick={() => setTab(t.id)}
-                >
-                  {t.label}
-                </button>
-              ))}
-            </nav>
+            <div className="tabs" role="tablist" aria-label="Vistas del radar">
+              {TABS.map((t, i) => {
+                const selected = tab === t.id
+                return (
+                  <button
+                    key={t.id}
+                    ref={(el) => {
+                      tabRefs.current[i] = el
+                    }}
+                    id={`tab-${t.id}`}
+                    role="tab"
+                    type="button"
+                    aria-selected={selected}
+                    aria-controls={`panel-${t.id}`}
+                    tabIndex={selected ? 0 : -1}
+                    className={`tab${selected ? ' tab--active' : ''}`}
+                    onClick={() => setTab(t.id)}
+                    onKeyDown={(e) => onTabKeyDown(e, i)}
+                  >
+                    {t.label}
+                  </button>
+                )
+              })}
+            </div>
 
             {tab !== 'perfil' && (
               <div className="filters-row">
@@ -67,7 +97,13 @@ function App() {
               </div>
             )}
 
-            <section className="panel">
+            <section
+              className="panel"
+              id={`panel-${tab}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${tab}`}
+              tabIndex={0}
+            >
               {tab === 'ranking' && <TechRanking jobs={jobs} profile={profile} />}
               {tab === 'evolucion' && <TimeEvolution jobs={jobs} />}
               {tab === 'ofertas' && <JobsTable jobs={jobs} />}

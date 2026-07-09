@@ -12,12 +12,15 @@ import {
 import type { Job } from '../types'
 import { CATEGORY_COLOR } from '../data/taxonomy'
 import { countByTech, evolutionShareByTech, scanDates } from '../lib/aggregations'
+import { useReducedMotion } from '../lib/useReducedMotion'
 import { useFilter } from '../filter/FilterContext'
+import { ChartDataTable } from './ChartDataTable'
 
 const TOP_N = 8
 
 export function TimeEvolution({ jobs }: { jobs: Job[] }) {
   const { isVisible, active, minEncaje } = useFilter()
+  const reducedMotion = useReducedMotion()
 
   const eligible = useMemo(
     () => (minEncaje > 0 ? jobs.filter((j) => j.encaje >= minEncaje) : jobs),
@@ -51,7 +54,16 @@ export function TimeEvolution({ jobs }: { jobs: Job[] }) {
           cuando se añadan ofertas con nuevas <code>fecha_escaneo</code>.
         </p>
       )}
-      <div className="chart" style={{ height: 420 }}>
+      <ChartDataTable
+        caption="Porcentaje de ofertas de cada escaneo que piden cada tecnología"
+        columns={['Escaneo', 'Ofertas escaneadas', ...topTechs.map((t) => `${t.tech} (%)`)]}
+        rows={data.map((row) => [
+          String(row.fecha),
+          Number(row.total),
+          ...topTechs.map((t) => `${row[t.tech] ?? 0}%`),
+        ])}
+      />
+      <div className="chart" style={{ height: 420 }} aria-hidden="true">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ left: 8, right: 24, top: 8, bottom: 8 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--grid)" />
@@ -79,6 +91,7 @@ export function TimeEvolution({ jobs }: { jobs: Job[] }) {
                 strokeWidth={2}
                 dot={{ r: 4 }}
                 connectNulls
+                isAnimationActive={!reducedMotion}
               />
             ))}
           </LineChart>

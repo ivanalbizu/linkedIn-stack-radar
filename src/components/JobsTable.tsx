@@ -51,7 +51,19 @@ export function JobsTable({ jobs }: { jobs: Job[] }) {
     setSort((prev) => (prev.key === key ? { key, asc: !prev.asc } : { key, asc: key !== 'encaje' }))
   }
 
-  const arrow = (key: SortKey) => (sort.key === key ? (sort.asc ? ' ↑' : ' ↓') : '')
+  /** Cabecera ordenable: el <th> expone aria-sort y el <button> es la diana accesible. */
+  function SortableTh({ sortKey, label, numeric }: { sortKey: SortKey; label: string; numeric?: boolean }) {
+    const isActive = sort.key === sortKey
+    const ariaSort = isActive ? (sort.asc ? 'ascending' : 'descending') : 'none'
+    return (
+      <th scope="col" aria-sort={ariaSort} className={numeric ? 'num' : undefined}>
+        <button type="button" className="th-sort" onClick={() => toggleSort(sortKey)}>
+          {label}
+          <span aria-hidden="true">{isActive ? (sort.asc ? ' ↑' : ' ↓') : ' ↕'}</span>
+        </button>
+      </th>
+    )
+  }
 
   return (
     <div className="table-wrap">
@@ -71,21 +83,18 @@ export function JobsTable({ jobs }: { jobs: Job[] }) {
         <CopyPromptButton text={JOBS_PROMPT} label="Copiar prompt para buscar ofertas" />
       </div>
       <table className="jobs">
+        <caption className="visually-hidden">
+          Ofertas analizadas, con sus requisitos y la puntuación de encaje con el perfil
+        </caption>
         <thead>
           <tr>
-            <th className="sortable" onClick={() => toggleSort('puesto')}>
-              Puesto{arrow('puesto')}
-            </th>
-            <th className="sortable" onClick={() => toggleSort('empresa')}>
-              Empresa{arrow('empresa')}
-            </th>
-            <th>Ubicación</th>
-            <th>Modalidad</th>
-            <th>Requisitos</th>
-            <th className="sortable num" onClick={() => toggleSort('encaje')}>
-              Encaje{arrow('encaje')}
-            </th>
-            <th>Motivo</th>
+            <SortableTh sortKey="puesto" label="Puesto" />
+            <SortableTh sortKey="empresa" label="Empresa" />
+            <th scope="col">Ubicación</th>
+            <th scope="col">Modalidad</th>
+            <th scope="col">Requisitos</th>
+            <SortableTh sortKey="encaje" label="Encaje" numeric />
+            <th scope="col">Motivo</th>
           </tr>
         </thead>
         <tbody>

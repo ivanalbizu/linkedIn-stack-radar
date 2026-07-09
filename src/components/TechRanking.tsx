@@ -13,7 +13,9 @@ import type { Job, Profile } from '../types'
 import { CATEGORY_COLOR } from '../data/taxonomy'
 import { countByTech } from '../lib/aggregations'
 import { buildTechStatus, type TechStatus } from '../lib/profileMatch'
+import { useReducedMotion } from '../lib/useReducedMotion'
 import { useFilter } from '../filter/FilterContext'
+import { ChartDataTable } from './ChartDataTable'
 
 /** Nº de tecnologías visibles inicialmente; el resto tras "Mostrar todas". */
 const INITIAL_COUNT = 30
@@ -45,9 +47,16 @@ function StatusTick({
   )
 }
 
+const STATUS_LABEL: Record<TechStatus, string> = {
+  have: 'en tu perfil',
+  gap: 'carencia declarada',
+  unknown: '—',
+}
+
 export function TechRanking({ jobs, profile }: { jobs: Job[]; profile: Profile | null }) {
   const { isVisible, active, minEncaje, scanScope, passesGlobal } = useFilter()
   const [showAll, setShowAll] = useState(false)
+  const reducedMotion = useReducedMotion()
 
   const statuses = useMemo(() => buildTechStatus(profile), [profile])
 
@@ -99,7 +108,16 @@ export function TechRanking({ jobs, profile }: { jobs: Job[]; profile: Profile |
         </p>
       )}
 
-      <div className="chart" style={{ height: chartHeight }}>
+      <ChartDataTable
+        caption={`Ranking de tecnologías por nº de ofertas que las piden (${visible.length} mostradas)`}
+        columns={['Tecnología', 'Ofertas', 'Estado respecto a tu perfil']}
+        rows={visible.map((t) => [
+          t.tech,
+          t.menciones,
+          STATUS_LABEL[statuses.get(t.tech) ?? 'unknown'],
+        ])}
+      />
+      <div className="chart" style={{ height: chartHeight }} aria-hidden="true">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={visible} layout="vertical" margin={{ left: 24, right: 24, top: 8, bottom: 8 }}>
             <XAxis type="number" allowDecimals={false} />
@@ -116,7 +134,7 @@ export function TechRanking({ jobs, profile }: { jobs: Job[]; profile: Profile |
               formatter={(value) => [`${value} ofertas`, 'Menciones']}
               labelStyle={{ fontWeight: 600 }}
             />
-            <Bar dataKey="menciones" radius={[0, 4, 4, 0]}>
+            <Bar dataKey="menciones" radius={[0, 4, 4, 0]} isAnimationActive={!reducedMotion}>
               {visible.map((entry) => (
                 <Cell key={entry.tech} fill={CATEGORY_COLOR[entry.category]} />
               ))}
