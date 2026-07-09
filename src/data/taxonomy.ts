@@ -104,6 +104,8 @@ const TECH_CATEGORY: Record<string, Category> = {
   // Testing
   Jest: 'Testing',
   RTL: 'Testing',
+  Playwright: 'Testing',
+  Cypress: 'Testing',
   Testing: 'Testing',
 
   // Backend / Datos / Infra

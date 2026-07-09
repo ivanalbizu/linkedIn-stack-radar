@@ -1,14 +1,8 @@
 import type { Profile } from '../types'
 import { KNOWN_TECHS, TECH_ALIAS } from '../data/taxonomy'
+import { normalize } from './search'
 
 export type TechStatus = 'have' | 'gap' | 'unknown'
-
-function normalize(s: string): string {
-  return s
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-}
 
 function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')

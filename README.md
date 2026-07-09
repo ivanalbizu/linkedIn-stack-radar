@@ -56,9 +56,15 @@ pnpm dev            # servidor de desarrollo
 pnpm build          # typecheck (tsc) + build de producción
 pnpm preview        # servir el build
 pnpm lint           # oxlint
+pnpm test           # tests con Vitest
+pnpm test:watch     # tests en modo watch
 pnpm add-jobs       # fusionar ofertas nuevas en public/jobs.json (dedup por id)
 pnpm add-jobs:dry   # lo mismo, sin escribir (simulación)
 ```
+
+Los tests cubren las funciones puras (agregaciones, búsqueda, taxonomía, cruce con el perfil) y,
+como test de integración, la dedup por `id` del CLI `add-jobs` (siempre en `--dry-run`, con una
+comprobación final de que no se ha tocado `public/jobs.json`).
 
 ## Esquemas de datos
 

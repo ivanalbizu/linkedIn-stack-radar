@@ -3,6 +3,7 @@ import type { Job } from '../types'
 import { CATEGORY_COLOR, categoryOf } from '../data/taxonomy'
 import { useFilter } from '../filter/FilterContext'
 import { JOBS_PROMPT } from '../data/prompts'
+import { matchesQuery } from '../lib/search'
 import { CopyPromptButton } from './CopyPromptButton'
 
 type SortKey = 'encaje' | 'empresa' | 'puesto'
@@ -13,25 +14,6 @@ function scoreClass(encaje: number): string {
   if (encaje >= 70) return 'score score--high'
   if (encaje >= 45) return 'score score--mid'
   return 'score score--low'
-}
-
-/** Normaliza para búsqueda: minúsculas y sin acentos. */
-function normalize(s: string): string {
-  return s
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-}
-
-function matchesQuery(job: Job, query: string): boolean {
-  const haystack = normalize(
-    [job.puesto, job.empresa, job.ubicacion, job.modalidad, job.motivo, ...job.requisitos].join(' '),
-  )
-  // Todas las palabras de la búsqueda deben aparecer (en cualquier campo).
-  return normalize(query)
-    .split(/\s+/)
-    .filter(Boolean)
-    .every((word) => haystack.includes(word))
 }
 
 export function JobsTable({ jobs }: { jobs: Job[] }) {
