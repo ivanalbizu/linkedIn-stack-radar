@@ -4,6 +4,7 @@ import { useJobs } from './lib/useJobs'
 import { useProfile } from './lib/useProfile'
 import { FilterProvider } from './filter/FilterContext'
 import { CategoryFilter } from './components/CategoryFilter'
+import { EncajeFilter } from './components/EncajeFilter'
 import { JobsTable } from './components/JobsTable'
 import { TechRanking } from './components/TechRanking'
 import { TimeEvolution } from './components/TimeEvolution'
@@ -53,10 +54,15 @@ function App() {
               ))}
             </nav>
 
-            {tab !== 'perfil' && <CategoryFilter />}
+            {tab !== 'perfil' && (
+              <div className="filters-row">
+                <CategoryFilter />
+                <EncajeFilter />
+              </div>
+            )}
 
             <section className="panel">
-              {tab === 'ranking' && <TechRanking jobs={jobs} />}
+              {tab === 'ranking' && <TechRanking jobs={jobs} profile={profile} />}
               {tab === 'evolucion' && <TimeEvolution jobs={jobs} />}
               {tab === 'ofertas' && <JobsTable jobs={jobs} />}
               {tab === 'perfil' &&

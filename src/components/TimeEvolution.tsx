@@ -17,20 +17,25 @@ import { useFilter } from '../filter/FilterContext'
 const TOP_N = 8
 
 export function TimeEvolution({ jobs }: { jobs: Job[] }) {
-  const { isVisible, active } = useFilter()
-  const dates = useMemo(() => scanDates(jobs), [jobs])
+  const { isVisible, active, minEncaje } = useFilter()
+
+  const eligible = useMemo(
+    () => (minEncaje > 0 ? jobs.filter((j) => j.encaje >= minEncaje) : jobs),
+    [jobs, minEncaje],
+  )
+  const dates = useMemo(() => scanDates(eligible), [eligible])
 
   const topTechs = useMemo(
     () =>
-      countByTech(jobs)
+      countByTech(eligible)
         .filter((t) => isVisible(t.category))
         .slice(0, TOP_N),
-    [jobs, isVisible],
+    [eligible, isVisible],
   )
 
   const data = useMemo(
-    () => evolutionShareByTech(jobs, topTechs.map((t) => t.tech)),
-    [jobs, topTechs],
+    () => evolutionShareByTech(eligible, topTechs.map((t) => t.tech)),
+    [eligible, topTechs],
   )
 
   return (

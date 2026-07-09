@@ -19,10 +19,12 @@ pnpm install
 pnpm dev        # abre http://localhost:5173
 ```
 
-Verás 4 pestañas: **Ranking de tecnologías** (nº de ofertas que piden cada una), **Evolución
-temporal** (% de ofertas por escaneo que piden cada tecnología), **Ofertas** (tabla con encaje y
-motivo) y **Mi perfil** (el contexto contra el que se puntúa el encaje). Filtro por categoría de
-tecnología en las vistas de datos.
+Verás 4 pestañas: **Ranking de tecnologías** (nº de ofertas que piden cada una, con marcas
+✓ ya-la-tengo / ✗ carencia cruzando con el perfil, y un resumen de "top brechas"), **Evolución
+temporal** (% de ofertas por escaneo que piden cada tecnología), **Ofertas** (tabla con buscador,
+paginación, encaje y motivo) y **Mi perfil** (el contexto contra el que se puntúa el encaje).
+Las vistas de datos se pueden filtrar por categoría de tecnología y por **encaje mínimo** (para
+mirar solo las ofertas a las que podrías aspirar).
 
 Para adaptarla a tu perfil: sustituye `public/jobs.json` y `public/perfil.json` por tus datos
 (esquemas abajo) y ajusta la taxonomía en `src/data/taxonomy.ts`.

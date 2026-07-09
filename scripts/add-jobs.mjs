@@ -19,8 +19,26 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DB_PATH = resolve(__dirname, '..', 'public', 'jobs.json')
+const TAXO_PATH = resolve(__dirname, '..', 'src', 'data', 'taxonomy.ts')
 
 const REQUIRED_FIELDS = ['id', 'url', 'puesto', 'empresa', 'ubicacion', 'modalidad', 'requisitos', 'encaje', 'motivo']
+
+/**
+ * Lectura ligera (regex) de taxonomy.ts, que es la fuente de verdad de tokens
+ * y alias. Node 20 no importa .ts, así que se extraen las claves del texto.
+ */
+async function loadTaxonomy() {
+  const src = await readFile(TAXO_PATH, 'utf8')
+  const keyRe = /^\s*(?:'([^']+)'|([\w$.#/]+))\s*:/gm
+  const catBlock = src.split('const TECH_CATEGORY')[1]?.split('export function categoryOf')[0] ?? ''
+  const aliasBlock = src.split('const TECH_ALIAS')[1]?.split('export function canonicalTech')[0] ?? ''
+  const known = new Set([...catBlock.matchAll(keyRe)].map((m) => m[1] ?? m[2]))
+  const alias = {}
+  for (const m of aliasBlock.matchAll(/^\s*(?:'([^']+)'|([\w$.#/]+))\s*:\s*'([^']+)'/gm)) {
+    alias[m[1] ?? m[2]] = m[3]
+  }
+  return { known, alias }
+}
 
 function parseArgs(argv) {
   const opts = { file: null, fecha: null, update: false, dryRun: false }
@@ -74,12 +92,14 @@ async function main() {
   const db = JSON.parse(await readFile(DB_PATH, 'utf8'))
   const rawInput = JSON.parse(await readFile(resolve(process.cwd(), opts.file), 'utf8'))
   const incoming = Array.isArray(rawInput) ? rawInput : [rawInput]
+  const { known, alias } = await loadTaxonomy()
 
   const byId = new Map(db.map((j) => [j.id, j]))
   let added = 0
   let updated = 0
   let skipped = 0
   let invalid = 0
+  const unknownTokens = new Set()
 
   for (const [index, job] of incoming.entries()) {
     if (!job.fecha_escaneo) job.fecha_escaneo = fecha
@@ -90,6 +110,18 @@ async function main() {
       console.warn(`✗ oferta #${index} (${job.empresa ?? '¿?'} / ${job.id ?? 's/id'}): ${errors.join(', ')}`)
       continue
     }
+
+    // Normalizar alias (misma regla que la app) y detectar tokens sin categoría.
+    job.requisitos = [
+      ...new Set(
+        job.requisitos.map((t) => {
+          const canon = alias[t] ?? t
+          if (canon !== t) console.log(`  ↺ alias: ${t} → ${canon}`)
+          return canon
+        }),
+      ),
+    ]
+    for (const t of job.requisitos) if (!known.has(t)) unknownTokens.add(t)
 
     const exists = byId.has(job.id)
     if (exists && !opts.update) {
@@ -113,6 +145,13 @@ async function main() {
   console.log(
     `\nResumen: +${added} añadidas, ↻${updated} actualizadas, ·${skipped} omitidas, ✗${invalid} inválidas. Total: ${result.length} ofertas.`,
   )
+
+  if (unknownTokens.size > 0) {
+    console.warn(
+      `\n⚠ Tokens sin categoría (caerán en "Otros" en la app): ${[...unknownTokens].join(', ')}` +
+        `\n  Añádelos a TECH_CATEGORY en src/data/taxonomy.ts (o como alias en TECH_ALIAS).`,
+    )
+  }
 
   if (invalid > 0 && added === 0 && updated === 0) {
     console.error('\nNo se escribió nada (solo entradas inválidas).')

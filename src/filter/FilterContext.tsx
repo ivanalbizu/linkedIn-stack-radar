@@ -8,12 +8,16 @@ interface FilterValue {
   clear: () => void
   /** true si la categoría debe mostrarse dado el filtro actual. */
   isVisible: (cat: Category) => boolean
+  /** Encaje mínimo de las ofertas consideradas en todas las vistas (0 = todas). */
+  minEncaje: number
+  setMinEncaje: (n: number) => void
 }
 
 const FilterCtx = createContext<FilterValue | null>(null)
 
 export function FilterProvider({ children }: { children: ReactNode }) {
   const [active, setActive] = useState<Set<Category>>(new Set())
+  const [minEncaje, setMinEncaje] = useState(0)
 
   const value = useMemo<FilterValue>(
     () => ({
@@ -27,8 +31,10 @@ export function FilterProvider({ children }: { children: ReactNode }) {
         }),
       clear: () => setActive(new Set()),
       isVisible: (cat) => active.size === 0 || active.has(cat),
+      minEncaje,
+      setMinEncaje,
     }),
-    [active],
+    [active, minEncaje],
   )
 
   return <FilterCtx.Provider value={value}>{children}</FilterCtx.Provider>

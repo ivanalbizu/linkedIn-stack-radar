@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { Job } from '../types'
+import { canonicalTech } from '../data/taxonomy'
 
 interface JobsState {
   jobs: Job[]
@@ -19,7 +20,12 @@ export function useJobs(): JobsState {
         return res.json() as Promise<Job[]>
       })
       .then((jobs) => {
-        if (!cancelled) setState({ jobs, loading: false, error: null })
+        // Normaliza alias de tecnologías para no fragmentar los conteos.
+        const canon = jobs.map((j) => ({
+          ...j,
+          requisitos: [...new Set(j.requisitos.map(canonicalTech))],
+        }))
+        if (!cancelled) setState({ jobs: canon, loading: false, error: null })
       })
       .catch((err: unknown) => {
         if (!cancelled)

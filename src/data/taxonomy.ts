@@ -72,6 +72,9 @@ const TECH_CATEGORY: Record<string, Category> = {
   'Styled Components': 'Frameworks / UI',
   'Angular Material': 'Frameworks / UI',
   Nuxt: 'Frameworks / UI',
+  Astro: 'Frameworks / UI',
+  Ionic: 'Frameworks / UI',
+  'Next.js': 'Frameworks / UI',
 
   // Lenguajes
   TypeScript: 'Lenguajes',
@@ -82,6 +85,7 @@ const TECH_CATEGORY: Record<string, Category> = {
   'HTML/CSS': 'Maquetación / CSS',
   SASS: 'Maquetación / CSS',
   BEM: 'Maquetación / CSS',
+  'Tailwind CSS': 'Maquetación / CSS',
 
   // Estado / Arquitectura
   NgRx: 'Estado / Arquitectura',
@@ -123,6 +127,7 @@ const TECH_CATEGORY: Record<string, Category> = {
   'PIXI.js': 'Visualización',
   'GIS / mapas': 'Visualización',
   OpenLayers: 'Visualización',
+  WebGL: 'Visualización',
 
   // IA / Tooling
   'Claude Code': 'IA / Tooling',
@@ -136,6 +141,7 @@ const TECH_CATEGORY: Record<string, Category> = {
   Git: 'Herramientas',
   i18n: 'Herramientas',
   CMS: 'Herramientas',
+  Drupal: 'Herramientas',
   Inglés: 'Herramientas',
 
   // Liderazgo / Rol
@@ -155,3 +161,33 @@ export function categoryOf(tech: string): Category {
 
 /** Tokens de tecnología conocidos (los que tienen categoría asignada). */
 export const KNOWN_TECHS: string[] = Object.keys(TECH_CATEGORY)
+
+/**
+ * Alias -> nombre canónico. Evita que grafías distintas entre escaneos
+ * fragmenten los conteos (p.ej. "Lit" y "LitElement" contarían por separado).
+ * `scripts/add-jobs.mjs` lee este mapa (parseo ligero del fichero) para
+ * normalizar al importar; la app lo aplica también al cargar jobs.json.
+ */
+export const TECH_ALIAS: Record<string, string> = {
+  Lit: 'LitElement',
+  'Lit Element': 'LitElement',
+  'Stencil.js': 'StencilJS',
+  Stencil: 'StencilJS',
+  'Micro-frontends': 'Microfrontends',
+  'Micro frontends': 'Microfrontends',
+  Vue: 'Vue 3',
+  'Vue.js': 'Vue 3',
+  VueJS: 'Vue 3',
+  'React.js': 'React',
+  ReactJS: 'React',
+  Node: 'Node.js',
+  NodeJS: 'Node.js',
+  'React Testing Library': 'RTL',
+  Sass: 'SASS',
+  SCSS: 'SASS',
+}
+
+/** Resuelve un token a su nombre canónico (o lo devuelve tal cual). */
+export function canonicalTech(tech: string): string {
+  return TECH_ALIAS[tech] ?? tech
+}

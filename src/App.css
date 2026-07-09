@@ -84,6 +84,38 @@ body {
   border-bottom-color: var(--brand);
 }
 
+/* ---- Filtros ---- */
+.filters-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filters-row .filter {
+  margin-bottom: 0;
+}
+
+.encaje-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.encaje-filter select {
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 13px;
+}
+
 /* ---- Filtro por categoría ---- */
 .filter {
   display: flex;
@@ -271,6 +303,26 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 12px;
+}
+
+/* ---- Brechas (ranking × perfil) ---- */
+.mark-have {
+  color: #1a7f37;
+  font-weight: 600;
+}
+
+.mark-gap {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.gaps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  margin: 0 0 12px;
 }
 
 .jobs {
