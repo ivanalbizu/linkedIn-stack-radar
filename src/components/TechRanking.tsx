@@ -46,15 +46,15 @@ function StatusTick({
 }
 
 export function TechRanking({ jobs, profile }: { jobs: Job[]; profile: Profile | null }) {
-  const { isVisible, active, minEncaje } = useFilter()
+  const { isVisible, active, minEncaje, scanScope, passesGlobal } = useFilter()
   const [showAll, setShowAll] = useState(false)
 
   const statuses = useMemo(() => buildTechStatus(profile), [profile])
 
-  const data = useMemo(() => {
-    const eligible = minEncaje > 0 ? jobs.filter((j) => j.encaje >= minEncaje) : jobs
-    return countByTech(eligible).filter((t) => isVisible(t.category))
-  }, [jobs, minEncaje, isVisible])
+  const data = useMemo(
+    () => countByTech(jobs.filter(passesGlobal)).filter((t) => isVisible(t.category)),
+    [jobs, passesGlobal, isVisible],
+  )
 
   const topGaps = useMemo(
     () => data.filter((t) => statuses.get(t.tech) === 'gap').slice(0, TOP_GAPS),
@@ -72,8 +72,9 @@ export function TechRanking({ jobs, profile }: { jobs: Job[]; profile: Profile |
           ? `${data.length} tecnologías`
           : `Top ${visible.length} de ${data.length} tecnologías`}
         {active.size > 0 ? ' en las categorías seleccionadas' : ''}
-        {minEncaje > 0 ? ` en ofertas con encaje ≥ ${minEncaje}` : ''} · el conteo es nº de
-        ofertas donde aparece cada una
+        {minEncaje > 0 ? ` con encaje ≥ ${minEncaje}` : ''}
+        {scanScope !== 'all' ? ` del escaneo ${scanScope}` : ''} · el conteo es nº de ofertas donde
+        aparece cada una
         {profile ? (
           <>
             {' '}

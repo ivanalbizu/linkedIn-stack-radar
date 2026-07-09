@@ -98,6 +98,13 @@ body {
   margin-bottom: 0;
 }
 
+.filters-row__globals {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .encaje-filter {
   display: inline-flex;
   align-items: center;

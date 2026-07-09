@@ -35,13 +35,13 @@ function matchesQuery(job: Job, query: string): boolean {
 }
 
 export function JobsTable({ jobs }: { jobs: Job[] }) {
-  const { isVisible, active, minEncaje } = useFilter()
+  const { isVisible, active, minEncaje, scanScope, passesGlobal } = useFilter()
   const [sort, setSort] = useState<{ key: SortKey; asc: boolean }>({ key: 'encaje', asc: false })
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(1)
 
   const filtered = useMemo(() => {
-    let result = minEncaje > 0 ? jobs.filter((j) => j.encaje >= minEncaje) : jobs
+    let result = jobs.filter(passesGlobal)
     if (active.size > 0)
       result = result.filter((j) => j.requisitos.some((t) => isVisible(categoryOf(t))))
     if (query.trim()) result = result.filter((j) => matchesQuery(j, query))
@@ -52,12 +52,12 @@ export function JobsTable({ jobs }: { jobs: Job[] }) {
       else cmp = String(a[sort.key]).localeCompare(String(b[sort.key]))
       return sort.asc ? cmp : -cmp
     })
-  }, [jobs, active, isVisible, minEncaje, query, sort])
+  }, [jobs, active, isVisible, passesGlobal, query, sort])
 
   // Al cambiar búsqueda, filtros u orden se vuelve a la primera página.
   useEffect(() => {
     setPage(1)
-  }, [query, active, minEncaje, sort])
+  }, [query, active, minEncaje, scanScope, sort])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
   const currentPage = Math.min(page, totalPages)

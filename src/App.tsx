@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import './App.css'
 import { useJobs } from './lib/useJobs'
 import { useProfile } from './lib/useProfile'
+import { scanDates } from './lib/aggregations'
 import { FilterProvider } from './filter/FilterContext'
 import { CategoryFilter } from './components/CategoryFilter'
 import { EncajeFilter } from './components/EncajeFilter'
+import { ScanFilter } from './components/ScanFilter'
 import { JobsTable } from './components/JobsTable'
 import { TechRanking } from './components/TechRanking'
 import { TimeEvolution } from './components/TimeEvolution'
@@ -23,6 +25,7 @@ function App() {
   const { jobs, loading, error } = useJobs()
   const { profile } = useProfile()
   const [tab, setTab] = useState<Tab>('ranking')
+  const dates = useMemo(() => scanDates(jobs), [jobs])
 
   return (
     <FilterProvider>
@@ -57,7 +60,10 @@ function App() {
             {tab !== 'perfil' && (
               <div className="filters-row">
                 <CategoryFilter />
-                <EncajeFilter />
+                <div className="filters-row__globals">
+                  {tab !== 'evolucion' && <ScanFilter dates={dates} />}
+                  <EncajeFilter />
+                </div>
               </div>
             )}
 
