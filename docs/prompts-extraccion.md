@@ -20,7 +20,9 @@ botón que copia el texto exacto al portapapeles.
 
 La lista de tokens de `requisitos` del prompt de ofertas se genera automáticamente
 desde `KNOWN_TECHS` en [`src/data/taxonomy.ts`](../src/data/taxonomy.ts), así que
-taxonomía y prompt nunca se desincronizan.
+taxonomía y prompt nunca se desincronizan. Además, el prompt de ofertas **incrusta tu
+perfil actual** (stack y carencias leídos de `perfil.json`) para que el `encaje` se
+puntúe contra datos reales y no de lo que Claude recuerde en la sesión del plugin.
 
 ## Flujo de trabajo
 

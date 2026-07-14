@@ -106,7 +106,7 @@ function App() {
             >
               {tab === 'ranking' && <TechRanking jobs={jobs} profile={profile} />}
               {tab === 'evolucion' && <TimeEvolution jobs={jobs} />}
-              {tab === 'ofertas' && <JobsTable jobs={jobs} />}
+              {tab === 'ofertas' && <JobsTable jobs={jobs} profile={profile} />}
               {tab === 'perfil' &&
                 (profile ? (
                   <ProfileCard profile={profile} />

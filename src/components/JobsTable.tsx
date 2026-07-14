@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { Job } from '../types'
+import type { Job, Profile } from '../types'
 import { CATEGORY_COLOR, categoryOf } from '../data/taxonomy'
 import { useFilter } from '../filter/useFilter'
-import { JOBS_PROMPT } from '../data/prompts'
+import { buildJobsPrompt } from '../data/prompts'
 import { matchesQuery } from '../lib/search'
 import { CopyPromptButton } from './CopyPromptButton'
 
@@ -16,11 +16,12 @@ function scoreClass(encaje: number): string {
   return 'score score--low'
 }
 
-export function JobsTable({ jobs }: { jobs: Job[] }) {
+export function JobsTable({ jobs, profile }: { jobs: Job[]; profile: Profile | null }) {
   const { isVisible, active, minEncaje, scanScope, passesGlobal } = useFilter()
   const [sort, setSort] = useState<{ key: SortKey; asc: boolean }>({ key: 'encaje', asc: false })
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(1)
+  const jobsPrompt = useMemo(() => buildJobsPrompt(profile), [profile])
 
   const filtered = useMemo(() => {
     let result = jobs.filter(passesGlobal)
@@ -80,7 +81,7 @@ export function JobsTable({ jobs }: { jobs: Job[] }) {
           {from}–{to} de {filtered.length} ofertas
           {filtered.length !== jobs.length ? ` (${jobs.length} en total)` : ''}
         </p>
-        <CopyPromptButton text={JOBS_PROMPT} label="Copiar prompt para buscar ofertas" />
+        <CopyPromptButton text={jobsPrompt} label="Copiar prompt para buscar ofertas" />
       </div>
       <table className="jobs">
         <caption className="visually-hidden">

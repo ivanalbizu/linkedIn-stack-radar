@@ -1,3 +1,4 @@
+import type { Profile } from '../types'
 import { KNOWN_TECHS } from './taxonomy'
 
 /**
@@ -40,8 +41,26 @@ Reglas:
 - No inventes datos que no estén en el perfil, salvo "carencias", que puedes inferir de tecnologías demandadas en el mercado que NO aparezcan en mi perfil.
 - "fecha_lectura" en formato YYYY-MM-DD.`
 
-/** Prompt para buscar ofertas en LinkedIn -> public/jobs.json (vía add-jobs) */
-export const JOBS_PROMPT = `Analiza las ofertas de Frontend / Design Systems relevantes para mi perfil que veas en la pestaña activa de LinkedIn y devuélveme únicamente un array JSON (sin texto alrededor, sin bloque de código markdown), donde cada elemento es:
+/** Bloque con mi perfil, para que el encaje se puntúe contra datos reales y no de memoria. */
+function profileBlock(profile: Profile | null): string {
+  if (!profile) {
+    return 'Mi perfil: Frontend / Design Systems Engineer (Web Components, TypeScript, Angular de maquetación).'
+  }
+  return [
+    'Mi perfil actual (úsalo para puntuar el encaje, no lo asumas de memoria):',
+    `- Identidad: ${profile.titular}.`,
+    `- Stack con experiencia real (encaje alto si la oferta lo pide): ${profile.stack_principal.join(', ')}.`,
+    `- Carencias (si son requisito duro no negociable, penaliza fuerte): ${profile.carencias.join(', ')}.`,
+  ].join('\n')
+}
+
+/**
+ * Prompt para buscar ofertas en LinkedIn -> public/jobs.json (vía add-jobs).
+ * Se construye con el perfil cargado para que el encaje no dependa de lo que
+ * Claude "recuerde" en la sesión del plugin.
+ */
+export function buildJobsPrompt(profile: Profile | null): string {
+  return `Analiza las ofertas de Frontend / Design Systems relevantes para mi perfil que veas en la pestaña activa de LinkedIn y devuélveme únicamente un array JSON (sin texto alrededor, sin bloque de código markdown), donde cada elemento es:
 
 {
   "id": "string — el id numérico de la oferta en la URL de LinkedIn",
@@ -56,19 +75,22 @@ export const JOBS_PROMPT = `Analiza las ofertas de Frontend / Design Systems rel
   "fecha_escaneo": "YYYY-MM-DD — la fecha de hoy"
 }
 
+${profileBlock(profile)}
+
 Reglas para "requisitos" (importante para poder agregar):
 - Usa tokens de esta lista siempre que apliquen, con esta grafía exacta:
   ${KNOWN_TECHS.join(', ')}.
 - Si una tecnología no está en la lista, añádela con un nombre corto y consistente.
 - No metas texto libre ni frases en "requisitos", solo nombres de tecnología.
 
-Reglas para "encaje" (0-100), según mi criterio:
-- Peso alto: experiencia profesional directa con lo que pide la oferta (Web Components, Stencil.js, Lit, TypeScript, Angular de maquetación, Storybook, Astro, Design Tokens → mi día a día en Capgemini).
-- Peso medio: experiencia adyacente/transferible (Node.js/MongoDB de Redegal).
-- Penaliza fuerte: requisito "duro" no negociable que no tengo (p.ej. "5 años de React", Java/OSGi, OutSystems) → por debajo de 40-45.
-- Formación/cursos: matiz menor. Rol/seniority (Tech Lead, Staff): ajuste fino a la baja.
+Reglas para "encaje" (0-100), según mi perfil de arriba:
+- Peso alto: experiencia profesional directa con lo que pide la oferta (las tecnologías de mi stack).
+- Peso medio: experiencia adyacente o transferible.
+- Penaliza fuerte: requisito "duro" no negociable que esté en mis carencias (p.ej. "5 años de React") → por debajo de 40-45.
+- Formación/cursos: matiz menor. Rol/seniority (Tech Lead, Staff) que no acredito: ajuste fino a la baja.
 
 Otras reglas:
 - Devuelve solo el array JSON, nada más.
 - Un elemento por oferta; el "id" es el de la URL (sirve para no duplicar entre escaneos).
 - "fecha_escaneo" en formato YYYY-MM-DD (misma fecha para todas las de esta tanda).`
+}
