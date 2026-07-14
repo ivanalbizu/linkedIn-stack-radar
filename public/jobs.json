@@ -1616,5 +1616,889 @@
     "encaje": 15,
     "motivo": "Blazor es un framework basado en C#/.NET completamente fuera de mi stack (Web Components, Stencil, Angular); no hay solapamiento relevante.",
     "fecha_escaneo": "2026-07-09"
+  },
+  {
+    "id": "4427223398",
+    "url": "https://www.linkedin.com/jobs/view/4427223398/",
+    "puesto": "Design Engineer, EU",
+    "empresa": "Ashby",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "GraphQL",
+      "Node.js",
+      "SQL",
+      "Design Systems",
+      "HTML/CSS",
+      "Cloud"
+    ],
+    "encaje": 55,
+    "motivo": "Rol muy centrado en Design Systems (tu fuerte), pero el stack pivota sobre React en vez de Web Components/Lit/Angular, lo que reduce el encaje técnico directo.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4437755173",
+    "url": "https://www.linkedin.com/jobs/view/4437755173/",
+    "puesto": "Desarrollador Frontend",
+    "empresa": "DIGITAL55",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "TypeScript",
+      "Angular",
+      "React",
+      "HTML/CSS",
+      "JavaScript"
+    ],
+    "encaje": 62,
+    "motivo": "TypeScript y Angular encajan con tu experiencia en Capgemini, aunque el requisito de inglés C1 fluido añade una barrera adicional.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4389583476",
+    "url": "https://www.linkedin.com/jobs/view/4389583476/",
+    "puesto": "Frontend Developer Vue Senior (100% teletrabajo)",
+    "empresa": "knowmad mood",
+    "ubicacion": "Madrid",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Vue 3",
+      "Nuxt",
+      "Pinia",
+      "JavaScript",
+      "HTML/CSS",
+      "SASS",
+      "REST",
+      "Vite",
+      "Git",
+      "Agile"
+    ],
+    "encaje": 42,
+    "motivo": "Vue/Nuxt no forma parte de tu stack principal (Web Components/Lit/Angular), por lo que el encaje técnico es limitado pese a ser un puesto senior de frontend.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4411380988",
+    "url": "https://www.linkedin.com/jobs/view/4411380988/",
+    "puesto": "Desarrollador/a Front (CELLS)",
+    "empresa": "Sopra Steria",
+    "ubicacion": "Madrid",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "LitElement",
+      "Cells",
+      "JavaScript",
+      "HTML/CSS",
+      "SASS"
+    ],
+    "encaje": 90,
+    "motivo": "Coincidencia casi exacta con tu día a día: desarrollo con Lit y Cells en proyecto bancario, igual que en tu experiencia actual en Capgemini.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4427093291",
+    "url": "https://www.linkedin.com/jobs/view/4427093291/",
+    "puesto": "Desarrollador/a Frontend Vue",
+    "empresa": "Cognodata",
+    "ubicacion": "Madrid",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "Vue 3",
+      "TypeScript",
+      "REST",
+      "Pinia",
+      "Vite",
+      "Git",
+      "Testing"
+    ],
+    "encaje": 42,
+    "motivo": "Buen nivel técnico en TypeScript y testing, pero el core Vue3/SPA no es tu área principal de especialización.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4399215851",
+    "url": "https://www.linkedin.com/jobs/view/4399215851/",
+    "puesto": "Frontend Developer",
+    "empresa": "italki",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "JavaScript",
+      "HTML/CSS"
+    ],
+    "encaje": 28,
+    "motivo": "Requisito duro de experiencia específica en React, tecnología que no forma parte de tu stack principal, penalizando fuertemente el encaje.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4434520816",
+    "url": "https://www.linkedin.com/jobs/view/4434520816/",
+    "puesto": "Frontend Senior Developer (AI-Native)",
+    "empresa": "Capgemini",
+    "ubicacion": "Madrid",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "Angular",
+      "TypeScript",
+      "HTML/CSS",
+      "JavaScript",
+      "Git",
+      "CI/CD",
+      "Docker",
+      "Agile",
+      "IA / Prompting"
+    ],
+    "encaje": 75,
+    "motivo": "Misma oferta AI-Native de Capgemini centrada en Angular y TypeScript, tecnologías clave en tu experiencia diaria.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4432770527",
+    "url": "https://www.linkedin.com/jobs/view/4432770527/",
+    "puesto": "Senior Frontend Developer",
+    "empresa": "Webedia",
+    "ubicacion": "Madrid",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "React",
+      "Vue 3",
+      "TypeScript",
+      "JavaScript",
+      "REST",
+      "Design Systems",
+      "Claude Code",
+      "AWS",
+      "Cloud"
+    ],
+    "encaje": 45,
+    "motivo": "El uso de Claude Code y el trabajo sobre un design system existente son afines a tu perfil, pero exige backend PHP/Symfony y presencialidad en Madrid.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4433935728",
+    "url": "https://www.linkedin.com/jobs/view/4433935728/",
+    "puesto": "Frontend Developer (VueJS)",
+    "empresa": "Fibonad",
+    "ubicacion": "Madrid",
+    "modalidad": "Presencial",
+    "requisitos": [
+      "Vue 3",
+      "JavaScript",
+      "HTML/CSS",
+      "Angular",
+      "React",
+      "Node.js",
+      "REST",
+      "SOLID"
+    ],
+    "encaje": 38,
+    "motivo": "El foco en Vue.js, la falta de modalidad remota y un stack no alineado a Web Components/Angular reducen el encaje con tu perfil.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4385290884",
+    "url": "https://www.linkedin.com/jobs/view/4385290884/",
+    "puesto": "FrontEnd Development / Technical Leader",
+    "empresa": "METRICA",
+    "ubicacion": "Madrid",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Cells",
+      "JavaScript",
+      "LitElement",
+      "Web Components",
+      "Liderazgo técnico"
+    ],
+    "encaje": 72,
+    "motivo": "Stack técnico (Cells, LitElement, WebComponents) muy alineado con tu experiencia, aunque el rol de Technical Leader exige gestión de equipos.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4435484162",
+    "url": "https://www.linkedin.com/jobs/view/4435484162/",
+    "puesto": "Frontend Engineer",
+    "empresa": "Airalo",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Vue 3",
+      "JavaScript",
+      "HTML/CSS",
+      "SOLID",
+      "POO",
+      "REST",
+      "Docker",
+      "Git",
+      "IA / Prompting"
+    ],
+    "encaje": 50,
+    "motivo": "Buenas prácticas (SOLID, testing) y uso de IA encajan, pero el requisito principal es experiencia en Vue.js, que no es tu tecnología central.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4427541967",
+    "url": "https://www.linkedin.com/jobs/view/4427541967/",
+    "puesto": "Frontend developer",
+    "empresa": "Scalian Spain",
+    "ubicacion": "Madrid",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "JavaScript",
+      "Storybook",
+      "Microfrontends",
+      "HTML/CSS",
+      "Testing",
+      "LitElement"
+    ],
+    "encaje": 68,
+    "motivo": "Storybook y microfrontends encajan bien con tu experiencia, y el conocimiento valorable de Lit-element refuerza el ajuste técnico.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4431655770",
+    "url": "https://www.linkedin.com/jobs/view/4431655770/",
+    "puesto": "Desarrollador de front-end",
+    "empresa": "Axpe Consulting",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Angular",
+      "Vue 3",
+      "JavaScript",
+      "Microfrontends",
+      "Java",
+      "REST"
+    ],
+    "encaje": 32,
+    "motivo": "El desarrollo backend en Java es un requisito imprescindible ajeno a tu perfil, penalizando fuertemente el encaje pese a la parte frontend con Angular.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4423134842",
+    "url": "https://www.linkedin.com/jobs/view/4423134842/",
+    "puesto": "Arquitecto frontend (100% remoto)",
+    "empresa": "UST",
+    "ubicacion": "Madrid",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Angular",
+      "Ionic",
+      "Web Components",
+      "CMS",
+      "Drupal",
+      "Arquitecto Frontend"
+    ],
+    "encaje": 70,
+    "motivo": "Angular y Web Components, junto al rol de Arquitecto Frontend, encajan con tu trayectoria, aunque exige experiencia previa como arquitecto y Drupal/CMS.",
+    "fecha_escaneo": "2026-07-11"
+  },
+  {
+    "id": "4409263207",
+    "url": "https://www.linkedin.com/jobs/view/4409263207/",
+    "puesto": "Frontend engineer",
+    "empresa": "SITA",
+    "ubicacion": "Barcelona",
+    "modalidad": "No especificado",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "REST",
+      "Git"
+    ],
+    "encaje": 35,
+    "motivo": "Rol de frontend generalista con React que no coincide directamente con tu stack principal (Angular/Web Components); tu TypeScript aporta algo de encaje pero sin experiencia consolidada en React.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4437578215",
+    "url": "https://www.linkedin.com/jobs/view/4437578215/",
+    "puesto": "Vue developer",
+    "empresa": "Accenture España",
+    "ubicacion": "Sevilla",
+    "modalidad": "No especificado",
+    "requisitos": [
+      "Vue 3",
+      "Pinia",
+      "JavaScript",
+      "HTML/CSS",
+      "REST",
+      "Git"
+    ],
+    "encaje": 25,
+    "motivo": "Exige varios años de experiencia específica en Vue.js, tecnología que no dominas; tu experiencia en Angular/Web Components no es directamente transferible.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4427488481",
+    "url": "https://www.linkedin.com/jobs/view/4427488481/",
+    "puesto": "Frontend Developer",
+    "empresa": "Merkle España",
+    "ubicacion": "Gijón y alrededores",
+    "modalidad": "No especificado",
+    "requisitos": [
+      "React",
+      "JavaScript",
+      "HTML/CSS",
+      "SASS",
+      "REST",
+      "Git"
+    ],
+    "encaje": 40,
+    "motivo": "Perfil de frontend orientado a React sin mención de Design Systems o Web Components; tu experiencia en maquetación y TS aporta cierta base pero el stack principal difiere del tuyo.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4437807335",
+    "url": "https://www.linkedin.com/jobs/view/4437807335/",
+    "puesto": "React Frontend Developer (Focus UI/Design to Code)",
+    "empresa": "Gana Energía",
+    "ubicacion": "Valencia/València",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "Design Systems",
+      "HTML/CSS",
+      "REST",
+      "Git"
+    ],
+    "encaje": 45,
+    "motivo": "El enfoque 'Design to Code' conecta con tu experiencia en Design Tokens/Design Systems, aunque React como stack principal no es tu área más fuerte.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4436714772",
+    "url": "https://www.linkedin.com/jobs/view/4436714772/",
+    "puesto": "Frontend",
+    "empresa": "Create",
+    "ubicacion": "Madrid",
+    "modalidad": "Presencial",
+    "requisitos": [
+      "JavaScript",
+      "HTML/CSS",
+      "React",
+      "Git"
+    ],
+    "encaje": 50,
+    "motivo": "Rol generalista de frontend con requisitos básicos de JS/HTML/CSS que tu perfil cubre, aunque no profundiza en Design Systems ni Web Components donde más destacas.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4435974663",
+    "url": "https://www.linkedin.com/jobs/view/4435974663/",
+    "puesto": "Frontend Developer React",
+    "empresa": "DKB Code Factory GmbH",
+    "ubicacion": "Valencia/València",
+    "modalidad": "No especificado",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "REST",
+      "Git",
+      "Agile"
+    ],
+    "encaje": 38,
+    "motivo": "Puesto centrado en React con TypeScript; tu sólida base en TS suma puntos pero el requisito principal en React no es tu especialidad.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4425279877",
+    "url": "https://www.linkedin.com/jobs/view/4425279877/",
+    "puesto": "Frontend TypeScript Developer",
+    "empresa": "Hero Gaming",
+    "ubicacion": "Marbella",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "TypeScript",
+      "React",
+      "JavaScript",
+      "HTML/CSS",
+      "REST",
+      "Testing",
+      "Git"
+    ],
+    "encaje": 35,
+    "motivo": "El título resalta TypeScript, que dominas, pero la descripción exige experiencia consolidada en React que no tienes, limitando el encaje global.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4427564358",
+    "url": "https://www.linkedin.com/jobs/view/4427564358/",
+    "puesto": "Angular Front-End Developer",
+    "empresa": "Hitachi Energy",
+    "ubicacion": "Zaragoza",
+    "modalidad": "No especificado",
+    "requisitos": [
+      "Angular",
+      "TypeScript",
+      "RxJS",
+      "HTML/CSS",
+      "Git",
+      "Agile"
+    ],
+    "encaje": 75,
+    "motivo": "Rol de Angular Front-End muy alineado con tu experiencia diaria en Capgemini con Angular de maquetación y TypeScript, con buena transferencia directa de skills.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4433353681",
+    "url": "https://www.linkedin.com/jobs/view/4433353681/",
+    "puesto": "Software Engineer - Frontend",
+    "empresa": "Sage",
+    "ubicacion": "Barcelona",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "Testing",
+      "REST",
+      "Git",
+      "Agile",
+      "Cloud"
+    ],
+    "encaje": 48,
+    "motivo": "Puesto de ingeniería frontend con TypeScript y buenas prácticas que encajan parcialmente, aunque no especifica framework principal ni menciona Design Systems.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4427557671",
+    "url": "https://www.linkedin.com/jobs/view/4427557671/",
+    "puesto": "Angular Front-End Developer",
+    "empresa": "Hitachi Energy",
+    "ubicacion": "Barcelona",
+    "modalidad": "No especificado",
+    "requisitos": [
+      "Angular",
+      "TypeScript",
+      "RxJS",
+      "HTML/CSS",
+      "Git",
+      "Agile"
+    ],
+    "encaje": 75,
+    "motivo": "Misma oferta que la de Zaragoza (Angular Front-End Developer) en otra ubicación; alto encaje por tu experiencia directa con Angular y TypeScript en Capgemini.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4432777819",
+    "url": "https://www.linkedin.com/jobs/view/4432777819/",
+    "puesto": "Frontend Software Developer",
+    "empresa": "Verisure",
+    "ubicacion": "Alicante/Alacant",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "Web Components",
+      "TypeScript",
+      "JavaScript",
+      "Design Systems",
+      "HTML/CSS",
+      "Testing",
+      "Git"
+    ],
+    "encaje": 85,
+    "motivo": "Fuerte alineación con tu experiencia core en Capgemini (Web Components, TypeScript, Design Systems), una de las ofertas más afines a tu perfil actual.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4438918342",
+    "url": "https://www.linkedin.com/jobs/view/4438918342/",
+    "puesto": "React Developer",
+    "empresa": "Altia",
+    "ubicacion": "Alicante/Alacant",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "REST",
+      "Git"
+    ],
+    "encaje": 45,
+    "motivo": "Modalidad 100% remota atractiva, pero el rol se centra en React donde no tienes experiencia profesional consolidada, aunque tu TypeScript aporta cierta base.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4413527781",
+    "url": "https://www.linkedin.com/jobs/view/4413527781/",
+    "puesto": "Frontend Engineer",
+    "empresa": "Marfeel",
+    "ubicacion": "Barcelona y alrededores",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "HTML/CSS",
+      "Testing",
+      "Git",
+      "Agile"
+    ],
+    "encaje": 55,
+    "motivo": "Oferta de frontend con TypeScript y buenas prácticas de testing que se ajustan a tu perfil, aunque React como framework principal reduce el encaje directo.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4422911401",
+    "url": "https://www.linkedin.com/jobs/view/4422911401/",
+    "puesto": "Frontend Developer",
+    "empresa": "Mediktor",
+    "ubicacion": "Barcelona",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "REST",
+      "Git"
+    ],
+    "encaje": 58,
+    "motivo": "Puesto de frontend con TypeScript que aprovecha parte de tu experiencia, aunque el stack principal en React no es tu área de mayor especialización.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4339007060",
+    "url": "https://www.linkedin.com/jobs/view/4339007060/",
+    "puesto": "Frontend Developer",
+    "empresa": "italki",
+    "ubicacion": "Madrid",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "HTML/CSS",
+      "REST",
+      "Testing",
+      "Git"
+    ],
+    "encaje": 25,
+    "motivo": "Exige años concretos de experiencia en React como requisito no negociable, algo que no cumples, lo que limita fuertemente el encaje.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4384135811",
+    "url": "https://www.linkedin.com/jobs/view/4384135811/",
+    "puesto": "Frontend Engineer",
+    "empresa": "Holaluz.com",
+    "ubicacion": "Barcelona",
+    "modalidad": "No especificado",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "Testing",
+      "Git",
+      "Agile"
+    ],
+    "encaje": 60,
+    "motivo": "Buen nivel de TypeScript y prácticas ágiles que encajan con tu perfil, aunque React como foco principal no es tu stack más fuerte.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4438209158",
+    "url": "https://www.linkedin.com/jobs/view/4438209158/",
+    "puesto": "Javascript Engineer",
+    "empresa": "Rakuten TV",
+    "ubicacion": "Barcelona",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "REST",
+      "Git"
+    ],
+    "encaje": 40,
+    "motivo": "El componente de Node.js conecta de forma transferible con tu experiencia en Redegal, pero el peso de React como tecnología principal limita el encaje.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4426805023",
+    "url": "https://www.linkedin.com/jobs/view/4426805023/",
+    "puesto": "Frontend Developer",
+    "empresa": "Amaris Consulting",
+    "ubicacion": "Barcelona",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "AEM",
+      "OSGi",
+      "Java",
+      "JavaScript",
+      "HTML/CSS"
+    ],
+    "encaje": 28,
+    "motivo": "Requiere experiencia consolidada en Java/OSGi/AEM, un stack muy distinto al tuyo centrado en Angular/Web Components, lo que penaliza fuertemente el encaje.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4417217522",
+    "url": "https://www.linkedin.com/jobs/view/4417217522/",
+    "puesto": "Front-End Developer (React)",
+    "empresa": "Qindel Group",
+    "ubicacion": "La Coruña",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "REST",
+      "Git"
+    ],
+    "encaje": 35,
+    "motivo": "Modalidad remota interesante, pero exige experiencia consolidada en React como requisito duro que no cumples, limitando el encaje real.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4399979764",
+    "url": "https://www.linkedin.com/jobs/view/4399979764/",
+    "puesto": "Frontend Developer React / TypeScript / IA",
+    "empresa": "Panel Sistemas Informaticos",
+    "ubicacion": "Valencia/València",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "IA / Prompting",
+      "JavaScript",
+      "Git"
+    ],
+    "encaje": 48,
+    "motivo": "El componente de IA conecta con tu interés y experiencia en herramientas de IA aplicadas al desarrollo, aunque el requisito principal en React reduce el encaje directo.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4436203349",
+    "url": "https://www.linkedin.com/jobs/view/4436203349/",
+    "puesto": "Frontend Developer",
+    "empresa": "Joppy",
+    "ubicacion": "Barcelona",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "HTML/CSS",
+      "Git"
+    ],
+    "encaje": 22,
+    "motivo": "Exige experiencia consolidada en React como tecnología principal no negociable, que no tienes, resultando en uno de los encajes más bajos del listado.",
+    "fecha_escaneo": "2026-07-12"
+  },
+  {
+    "id": "4440059704",
+    "url": "https://www.linkedin.com/jobs/view/4440059704/",
+    "puesto": "Desarrollador de front-end",
+    "empresa": "Alvea Soluciones Tecnológicas",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Cells",
+      "LitElement",
+      "Web Components",
+      "JavaScript"
+    ],
+    "encaje": 90,
+    "motivo": "Coincide de forma directa con mi día a día en Capgemini (Web Components, LitElement, Cells) y con maquetación en JavaScript nativo sin frameworks pesados.",
+    "fecha_escaneo": "2026-07-13"
+  },
+  {
+    "id": "4437940587",
+    "url": "https://www.linkedin.com/jobs/view/4437940587/",
+    "puesto": "Design Engineer - Studio Team",
+    "empresa": "Jobgether (partner confidencial)",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "MobX",
+      "AWS",
+      "CI/CD",
+      "Figma"
+    ],
+    "encaje": 45,
+    "motivo": "El perfil de diseño+ingeniería se alinea con mi experiencia en UI, pero pide experiencia sólida en React y gestión de estado con MobX, tecnologías que no son mi día a día.",
+    "fecha_escaneo": "2026-07-13"
+  },
+  {
+    "id": "4439162485",
+    "url": "https://www.linkedin.com/jobs/view/4439162485/",
+    "puesto": "Front-End Developer (Angular)",
+    "empresa": "HCLTech",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Angular",
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "Redux",
+      "REST",
+      "Git",
+      "CI/CD",
+      "Docker",
+      "Next.js",
+      "Cloud",
+      "Agile"
+    ],
+    "encaje": 60,
+    "motivo": "Buen ajuste técnico en Angular, TypeScript y JavaScript, aunque es un desarrollo funcional sin foco en Design Systems ni Web Components, mi área de especialización.",
+    "fecha_escaneo": "2026-07-13"
+  },
+  {
+    "id": "4422601745",
+    "url": "https://www.linkedin.com/jobs/view/4422601745/",
+    "puesto": "Lead UX Designer & Frontend Engineer",
+    "empresa": "Roche Holding AG",
+    "ubicacion": "Sant Cugat del Vallès, España",
+    "modalidad": "Presencial",
+    "requisitos": [
+      "Vue 3",
+      "D3.js",
+      "Tailwind CSS",
+      "HTML/CSS",
+      "SASS",
+      "REST",
+      "GraphQL",
+      "AWS",
+      "Cloud",
+      "Agile",
+      "Design Systems",
+      "Liderazgo técnico"
+    ],
+    "encaje": 38,
+    "motivo": "El componente de Design Systems y liderazgo técnico es afín a tu rol, pero exige 5+ años prácticos en Vue.js y AWS, ambas carencias importantes de tu perfil.",
+    "fecha_escaneo": "2026-07-13"
+  },
+  {
+    "id": "4408248847",
+    "url": "https://www.linkedin.com/jobs/view/4408248847/",
+    "puesto": "Typescript Developer",
+    "empresa": "Valsea Technology AB",
+    "ubicacion": "Marbella, España",
+    "modalidad": "Híbrido/Remoto",
+    "requisitos": [
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "GraphQL",
+      "React",
+      "Inglés"
+    ],
+    "encaje": 35,
+    "motivo": "Tu dominio de TypeScript y JavaScript encaja, pero el puesto exige comprensión profunda de React.js y GraphQL, ambas carencias declaradas en tu perfil.",
+    "fecha_escaneo": "2026-07-13"
+  },
+  {
+    "id": "4432118553",
+    "url": "https://www.linkedin.com/jobs/view/4432118553/",
+    "puesto": "Desarrollador/a Senior Angular (AI Native) - ANDALUCIA",
+    "empresa": "AD4 Octógono",
+    "ubicacion": "Sevilla, Andalucía, España",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "Angular",
+      "HTML/CSS",
+      "JavaScript",
+      "TypeScript",
+      "Git",
+      "CI/CD",
+      "Inglés",
+      "Testing",
+      "Docker"
+    ],
+    "encaje": 30,
+    "motivo": "Requiere 5 años demostrables en Angular, framework fuera de mi experiencia profesional, aunque coincide en HTML, CSS, JS, TS y Git.",
+    "fecha_escaneo": "2026-07-14"
+  },
+  {
+    "id": "4436307423",
+    "url": "https://www.linkedin.com/jobs/view/4436307423/",
+    "puesto": "Web Developer Angular Senior",
+    "empresa": "LHH",
+    "ubicacion": "Madrid, Comunidad de Madrid, España",
+    "modalidad": "Presencial",
+    "requisitos": [
+      "Angular",
+      "HTML/CSS",
+      "JavaScript",
+      "Testing",
+      "CI/CD",
+      "Node.js"
+    ],
+    "encaje": 35,
+    "motivo": "El título exige Angular senior y conocimientos de tecnologías server-side, áreas fuera de mi experiencia principal en Web Components y Design Systems.",
+    "fecha_escaneo": "2026-07-14"
+  },
+  {
+    "id": "4428808700",
+    "url": "https://www.linkedin.com/jobs/view/4428808700/",
+    "puesto": "Angular Software Engineer (MQTT & Distributed Systems)",
+    "empresa": "PrimeIT España",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "Angular",
+      "REST",
+      "SQL",
+      "MongoDB",
+      "Testing",
+      "Git",
+      "Node.js",
+      "Docker",
+      "CI/CD"
+    ],
+    "encaje": 15,
+    "motivo": "Rol muy especializado en sistemas distribuidos e IoT con Angular como requisito duro, dominio alejado de mi experiencia en Design Systems y Web Components.",
+    "fecha_escaneo": "2026-07-14"
+  },
+  {
+    "id": "4432361445",
+    "url": "https://www.linkedin.com/jobs/view/4432361445/",
+    "puesto": "AEM Frontend Developer",
+    "empresa": "atmira",
+    "ubicacion": "Pozuelo de Alarcón, Comunidad de Madrid, España",
+    "modalidad": "Presencial",
+    "requisitos": [
+      "AEM",
+      "CMS",
+      "JavaScript",
+      "HTML/CSS",
+      "REST",
+      "SQL",
+      "Git",
+      "Agile"
+    ],
+    "encaje": 40,
+    "motivo": "Buena coincidencia en fundamentos de JavaScript, HTML y CSS, pero el puesto gira en torno a Adobe Experience Manager, un CMS ajeno a mi experiencia.",
+    "fecha_escaneo": "2026-07-14"
+  },
+  {
+    "id": "4426341430",
+    "url": "https://www.linkedin.com/jobs/view/4426341430/",
+    "puesto": "Programador/a Angular Junior",
+    "empresa": "Ayesa Digital",
+    "ubicacion": "Sevilla, Andalucía, España",
+    "modalidad": "Híbrido",
+    "requisitos": [
+      "Angular",
+      "Java",
+      "SQL"
+    ],
+    "encaje": 20,
+    "motivo": "Puesto de nivel junior con fuerte peso en backend Java y Angular, desajuste de seniority y de stack respecto a mi perfil senior en Design Systems.",
+    "fecha_escaneo": "2026-07-14"
   }
 ]

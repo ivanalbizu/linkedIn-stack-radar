@@ -1,112 +1,81 @@
 {
-  "nombre": "Iván González Albizu",
-  "titular": "UI Developer | Design Systems Engineer en Capgemini",
-  "ubicacion": "Sevilla y alrededores",
-  "resumen": "Frontend Engineer con más de 9 años de experiencia, especializado en Design Systems escalables. Actualmente en Capgemini Engineering desarrolla librerías de componentes core para clientes de Telco y Seguros, combinando Web Components agnósticos, Design Tokens automatizados y documentación viva. Además del rol técnico, ejerce como People Manager de 4 personas, encargándose de mentoring, 1:1s y seguimiento de desempeño.",
-  "stack_principal": [
-    "Design Systems & Component Libraries",
-    "Stencil.js",
-    "Web Components",
-    "TypeScript",
-    "Astro",
-    "Storybook",
-    "Vite",
-    "Angular",
-    "Lit",
-    "BEM",
-    "Atomic Design",
-    "Micro-frontends",
-    "Design Tokens",
-    "Playwright (E2E testing)",
-    "GSAP / animación SVG"
-  ],
-  "accesibilidad": [
-    "Mención explícita a WCAG 2.1 como core skill",
-    "Curso completado: The Practical Accessibility Course de Sara Soueidan",
-    "Proyecto propio @ivanalbizu/astro-contrast: herramienta que analiza automáticamente el contraste de color según WCAG 2.1",
-    "Publicación sobre CSS contrast-color() y accesibilidad nativa en el navegador",
-    "Artículo compartido sobre necesidades de personas con discapacidad cognitiva",
-    "astro-particle-image-viewer con navegación por teclado, focus trap, ARIA labels y touch targets WCAG",
-    "Astro WebGL Components con ARIA roles, navegación por teclado y anuncios para lectores de pantalla",
-    "Publicación 'The Accessibility Blame Game: The Fallacy of the Lazy Developer'"
-  ],
-  "ia_herramientas": [
-    "Certificación 'Curso Completo Claude: Chat, Claude Cowork y todo su entorno' (Udemy)",
-    "Certificación 'Vibe Coding: De forma responsable' (Udemy)",
-    "Certificación 'Curso Completo de Claude Code: Crea Aplicaciones con IA' (Udemy)",
-    "Certificación 'Dashboards en Minutos con la IA de Claude' (Udemy)",
-    "Uso de Claude como apoyo para aprender Lit y la arquitectura de Open Cells",
-    "Tutorial sobre WebMCP (Web Model Context Protocol), API experimental de Chrome",
-    "Aplicaciones vinculadas con capacidades de IA: Gamma y Replit"
-  ],
-  "experiencia": [
-    {
-      "empresa": "Capgemini",
-      "rol": "UI Developer",
-      "periodo": "mar. 2022 - actualidad",
-      "modalidad": "Remoto",
-      "detalle": "Arquitectura de Web Components con Stencil.js, Storybook y Design Tokens, más rol de People Manager de 4 personas (mentoring, 1:1s y seguimiento de desempeño)."
-    },
-    {
-      "empresa": "Redegal S.L.",
-      "rol": "Frontend Developer & Maquetador Web",
-      "periodo": "mar. 2018 - mar. 2022",
-      "modalidad": "Remoto",
-      "detalle": "Desarrollo frontend para e-commerce de alto tráfico, incluyendo una SaaS interna para BERSHKA con Node.js, Express, Pug, MJML y MongoDB."
-    },
-    {
-      "empresa": "everis",
-      "rol": "Web Developer",
-      "periodo": "ene. 2017 - feb. 2018",
-      "modalidad": "Sevilla y alrededores, España · Presencial",
-      "detalle": "Desarrollo de sitios corporativos con WordPress, PHP, JavaScript y maquetación con SASS y Bootstrap."
-    },
-    {
-      "empresa": "Pixaboo | Digital & Creative Studio",
-      "rol": "Web Developer",
-      "periodo": "dic. 2015 - abr. 2016",
-      "modalidad": "Sevilla y alrededores",
-      "detalle": "Sitios web con WordPress, PHP y JavaScript, maquetación con CSS/SASS y Bootstrap Material Design."
-    },
-    {
-      "empresa": "GuadalTech Soluciones Tecnológicas",
-      "rol": "Software Developer",
-      "periodo": "mar. 2015 - oct. 2015",
-      "modalidad": "Sevilla y alrededores · Presencial",
-      "detalle": "Desarrollo de módulos para Odoo con Python y XML, y generación de informes con Jasper Reports."
-    },
-    {
-      "empresa": "Freelance",
-      "rol": "Maquetador web",
-      "periodo": "sept. 2011 - ene. 2015",
-      "modalidad": "Sevilla",
-      "detalle": "Maquetación de sitios estáticos y temas WordPress con HTML, CSS, JavaScript y diseños responsive con Bootstrap."
-    }
-  ],
-  "formacion": [
-    "F.P. Superior Desarrollo de Aplicaciones Multiplataforma - C.D.P. Salesianos Triana (2013-2015)",
-    "Programación web: JavaScript - SEAS, Estudios Superiores Abiertos (2013)",
-    "Programador Aplicaciones Informáticas - Universidad CEU San Pablo (2011)",
-    "Arquitectura Técnica - Universidad de Sevilla (2000-2004)",
-    "The Practical Accessibility Course - Sara Soueidan",
-    "Curso Completo Claude: Chat, Claude Cowork y todo su entorno (Udemy)",
-    "Vibe Coding: De forma responsable (Udemy)",
-    "Curso Completo de Claude Code: Crea Aplicaciones con IA (Udemy)",
-    "Dashboards en Minutos con la IA de Claude (Udemy)",
-    "Aplicaciones web con Web Components, Lit Element y StencilJS (Udemy)",
-    "Dominando Playwright con TypeScript: E2E Testing moderno (Udemy)",
-    "Learn SVG Animation - With HTML, CSS & Javascript (Udemy)",
-    "Learn Web Animation the Easy Way: An Intro to SVG and GSAP (Udemy)",
-    "Desarrollo web ultra rápido con Astro (Udemy)",
-    "Dart: De cero hasta los detalles (Udemy)"
-  ],
-  "carencias": [
-    "React (uso profesional, solo exposición vía curso de Astro)",
-    "Vue.js (uso profesional)",
-    "Next.js",
-    "Flutter (solo fundamentos de Dart, sin apps profesionales)",
-    "Cloud (AWS, Azure o GCP)",
-    "Tech Lead formal / liderazgo técnico de equipo (tiene rol de People Manager, no de Tech Lead)"
-  ],
-  "fecha_lectura": "2026-07-06"
+"nombre": "Iván González Albizu",
+"titular": "UI Developer | Design Systems Engineer en Capgemini",
+"ubicacion": "Sevilla y alrededores",
+"resumen": "Ingeniero de software frontend con más de 9 años de experiencia, especializado en Design Systems escalables. Actualmente en Capgemini Engineering desarrolla librerías de componentes core para clientes de Telco y Seguros, apoyándose en Web Components, Design Tokens y documentación viva. Además ejerce como People Manager de 4 personas, con mentoring y seguimiento de desempeño. Es autor técnico en su blog personal sobre frontend moderno y buenas prácticas.",
+"stack_principal": ["Web Components", "StencilJS", "TypeScript", "Storybook", "Design Systems", "Astro", "Vite", "Lit", "BEM", "Atomic Design", "Design Tokens", "JavaScript", "CSS3/SASS", "HTML5"],
+"accesibilidad": [
+"WCAG 2.1 incluido entre sus core skills",
+"Curso 'Practical Accessibility' de Sara Soueidan completado",
+"Implementación de ARIA labels, focus trap y navegación por teclado (WCAG) en componente Astro",
+"Uso de CSS contrast-color() para contraste automático y accesibilidad nativa",
+"Compartió artículo sobre necesidades de personas con discapacidad cognitiva"
+],
+"ia_herramientas": [
+"Claude Code (parte de su flujo de trabajo diario)",
+"Claude con extensión de Chrome para lectura asistida de ofertas de empleo, sin scraping",
+"Curso completado: 'Curso Completo de Claude Code: Crea Aplicaciones con IA' (Udemy)",
+"Side project 'LinkedIn Stack Radar' desarrollado en pareja con Claude Code"
+],
+"experiencia": [
+{
+"empresa": "Capgemini",
+"rol": "UI Developer",
+"periodo": "mar. 2022 - actualidad",
+"modalidad": "Remoto",
+"detalle": "Arquitectura y desarrollo de librerías de componentes con Stencil.js, Design Tokens, Storybook, Vue y Angular para clientes de Telco y Seguros, además de mentoring de 4 personas."
+},
+{
+"empresa": "Redegal S.L.",
+"rol": "Frontend Developer & Maquetador Web",
+"periodo": "mar. 2018 - mar. 2022",
+"modalidad": "Remoto",
+"detalle": "Desarrollo frontend para e-commerce de alto tráfico, incluyendo una app SaaS de emails transaccionales con Node.js, Express, Pug, MJML y MongoDB."
+},
+{
+"empresa": "everis",
+"rol": "Web Developer",
+"periodo": "ene. 2017 - feb. 2018",
+"modalidad": "Sevilla y alrededores, España (Presencial)",
+"detalle": "Desarrollo y maquetación de sitios corporativos con WordPress, PHP, JavaScript, SASS y Bootstrap."
+},
+{
+"empresa": "Pixaboo | Digital & Creative Studio",
+"rol": "Web Developer",
+"periodo": "dic. 2015 - abr. 2016",
+"modalidad": "Sevilla y alrededores",
+"detalle": "Maquetación de sitios WordPress con HTML, CSS/SASS y Bootstrap Material Design."
+},
+{
+"empresa": "GuadalTech Soluciones Tecnológicas",
+"rol": "Software Developer",
+"periodo": "mar. 2015 - oct. 2015",
+"modalidad": "Sevilla y alrededores (Presencial)",
+"detalle": "Desarrollo de módulos ERP en Odoo con Python y XML, y generación de informes con Jasper Reports."
+},
+{
+"empresa": "Freelance",
+"rol": "Maquetador web",
+"periodo": "sept. 2011 - ene. 2015",
+"modalidad": "Sevilla",
+"detalle": "Maquetación de sitios estáticos y temas WordPress con HTML, CSS, JavaScript y diseño responsive con Bootstrap."
+}
+],
+"formacion": [
+"F.P. Superior Desarrollo de Aplicaciones Multiplataforma - C.D.P. Salesianos Triana (2013-2015)",
+"Programación web: JavaScript - SEAS, Estudios Superiores Abiertos (2013)",
+"Programador Aplicaciones Informáticas - Universidad CEU San Pablo (2011)",
+"Arquitectura Técnica - Universidad de Sevilla (2000-2004)"
+],
+"carencias": [
+"React en entorno profesional (solo usado en proyectos personales)",
+"Vue.js a nivel profesional avanzado",
+"Rol de Tech Lead formal",
+"Testing automatizado (Jest, Cypress, Playwright) en el día a día profesional",
+"Experiencia con plataformas cloud (AWS, Azure, GCP)",
+"Next.js / meta-frameworks React en producción",
+"GraphQL",
+"CI/CD avanzado (pipelines DevOps)"
+],
+"fecha_lectura": "2026-07-13"
 }
