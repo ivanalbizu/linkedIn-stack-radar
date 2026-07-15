@@ -4,6 +4,7 @@ import { CATEGORY_COLOR, categoryOf } from '../data/taxonomy'
 import { useFilter } from '../filter/useFilter'
 import { buildJobsPrompt } from '../data/prompts'
 import { matchesQuery } from '../lib/search'
+import { canonicalModalidad, MODALIDAD_ORDER, type Modalidad } from '../lib/modalidad'
 import { CopyPromptButton } from './CopyPromptButton'
 
 type SortKey = 'encaje' | 'empresa' | 'puesto'
@@ -20,13 +21,22 @@ export function JobsTable({ jobs, profile }: { jobs: Job[]; profile: Profile | n
   const { isVisible, active, minEncaje, scanScope, passesGlobal } = useFilter()
   const [sort, setSort] = useState<{ key: SortKey; asc: boolean }>({ key: 'encaje', asc: false })
   const [query, setQuery] = useState('')
+  const [modalidad, setModalidad] = useState<Modalidad | 'all'>('all')
   const [page, setPage] = useState(1)
   const jobsPrompt = useMemo(() => buildJobsPrompt(profile), [profile])
+
+  // Modalidades presentes en los datos, en orden canónico (para poblar el selector).
+  const modalidades = useMemo(() => {
+    const present = new Set(jobs.map((j) => canonicalModalidad(j.modalidad)))
+    return MODALIDAD_ORDER.filter((m) => present.has(m))
+  }, [jobs])
 
   const filtered = useMemo(() => {
     let result = jobs.filter(passesGlobal)
     if (active.size > 0)
       result = result.filter((j) => j.requisitos.some((t) => isVisible(categoryOf(t))))
+    if (modalidad !== 'all')
+      result = result.filter((j) => canonicalModalidad(j.modalidad) === modalidad)
     if (query.trim()) result = result.filter((j) => matchesQuery(j, query))
 
     return [...result].sort((a, b) => {
@@ -35,12 +45,12 @@ export function JobsTable({ jobs, profile }: { jobs: Job[]; profile: Profile | n
       else cmp = String(a[sort.key]).localeCompare(String(b[sort.key]))
       return sort.asc ? cmp : -cmp
     })
-  }, [jobs, active, isVisible, passesGlobal, query, sort])
+  }, [jobs, active, isVisible, passesGlobal, modalidad, query, sort])
 
   // Al cambiar búsqueda, filtros u orden se vuelve a la primera página.
   useEffect(() => {
     setPage(1)
-  }, [query, active, minEncaje, scanScope, sort])
+  }, [query, active, minEncaje, scanScope, modalidad, sort])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
   const currentPage = Math.min(page, totalPages)
@@ -77,6 +87,22 @@ export function JobsTable({ jobs, profile }: { jobs: Job[]; profile: Profile | n
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+        {modalidades.length > 1 && (
+          <label className="encaje-filter">
+            Modalidad
+            <select
+              value={modalidad}
+              onChange={(e) => setModalidad(e.target.value as Modalidad | 'all')}
+            >
+              <option value="all">Todas</option>
+              {modalidades.map((m) => (
+                <option key={m} value={m}>
+                  {m}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
         <p className="muted">
           {from}–{to} de {filtered.length} ofertas
           {filtered.length !== jobs.length ? ` (${jobs.length} en total)` : ''}

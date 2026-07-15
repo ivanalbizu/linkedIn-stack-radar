@@ -93,6 +93,8 @@ const TECH_CATEGORY: Record<string, Category> = {
   DDD: 'Estado / Arquitectura',
   'Arquitectura Hexagonal': 'Estado / Arquitectura',
   Microfrontends: 'Estado / Arquitectura',
+  MobX: 'Estado / Arquitectura',
+  Zustand: 'Estado / Arquitectura',
   SOLID: 'Estado / Arquitectura',
   POO: 'Estado / Arquitectura',
 
@@ -106,6 +108,7 @@ const TECH_CATEGORY: Record<string, Category> = {
   RTL: 'Testing',
   Playwright: 'Testing',
   Cypress: 'Testing',
+  Jasmine: 'Testing',
   Testing: 'Testing',
 
   // Backend / Datos / Infra
@@ -122,6 +125,7 @@ const TECH_CATEGORY: Record<string, Category> = {
   Java: 'Backend / Datos / Infra',
   Cloud: 'Backend / Datos / Infra',
   Nx: 'Backend / Datos / Infra',
+  Kubernetes: 'Backend / Datos / Infra',
   'Extreme Programming': 'Backend / Datos / Infra',
 
   // Visualización
@@ -130,6 +134,7 @@ const TECH_CATEGORY: Record<string, Category> = {
   'GIS / mapas': 'Visualización',
   OpenLayers: 'Visualización',
   WebGL: 'Visualización',
+  'D3.js': 'Visualización',
 
   // IA / Tooling
   'Claude Code': 'IA / Tooling',
@@ -144,6 +149,7 @@ const TECH_CATEGORY: Record<string, Category> = {
   i18n: 'Herramientas',
   CMS: 'Herramientas',
   Drupal: 'Herramientas',
+  Figma: 'Herramientas',
   Inglés: 'Herramientas',
 
   // Liderazgo / Rol
@@ -154,6 +160,11 @@ const TECH_CATEGORY: Record<string, Category> = {
   OutSystems: 'No-frontend / Low-code',
   AEM: 'No-frontend / Low-code',
   OSGi: 'No-frontend / Low-code',
+  '.NET': 'No-frontend / Low-code',
+  Blazor: 'No-frontend / Low-code',
+  Salesforce: 'No-frontend / Low-code',
+  'Lightning Web Components': 'No-frontend / Low-code',
+  Cordova: 'No-frontend / Low-code',
 }
 
 /** Devuelve la categoría de una tecnología, o "Otros" si no está mapeada. */
