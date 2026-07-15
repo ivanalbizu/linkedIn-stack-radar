@@ -2500,5 +2500,65 @@
     "encaje": 20,
     "motivo": "Puesto de nivel junior con fuerte peso en backend Java y Angular, desajuste de seniority y de stack respecto a mi perfil senior en Design Systems.",
     "fecha_escaneo": "2026-07-14"
+  },
+  {
+    "id": "4439990290",
+    "url": "https://www.linkedin.com/jobs/view/4439990290/",
+    "puesto": "Senior Design Engineer, Growth",
+    "empresa": "Jobgether",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "HTML/CSS",
+      "Cursor",
+      "Claude Code",
+      "Copilot",
+      "IA / Prompting"
+    ],
+    "encaje": 35,
+    "motivo": "Exige React avanzado como requisito no negociable, tecnología que solo has usado en proyectos personales; tu solidez en TypeScript, CSS y sistemas de diseño no compensa esa carencia dura.",
+    "fecha_escaneo": "2026-07-15"
+  },
+  {
+    "id": "4440201281",
+    "url": "https://www.linkedin.com/jobs/view/4440201281/",
+    "puesto": "Senior Frontend Engineer (React)",
+    "empresa": "Jobgether",
+    "ubicacion": "España",
+    "modalidad": "Remoto",
+    "requisitos": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Canvas",
+      "WebGL",
+      "Zustand"
+    ],
+    "encaje": 30,
+    "motivo": "Pide 5+ años de React profesional y Tailwind como base del puesto, área donde careces de experiencia laboral real; tu buen nivel de TypeScript y CSS no basta frente a ese requisito duro.",
+    "fecha_escaneo": "2026-07-15"
+  },
+  {
+    "id": "4437779738",
+    "url": "https://www.linkedin.com/jobs/view/4437779738/",
+    "puesto": "Senior React Engineer",
+    "empresa": "Oscar Mobility",
+    "ubicacion": "España (preferente Sevilla/España)",
+    "modalidad": "Híbrido (remoto posible en la UE)",
+    "requisitos": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "HTML/CSS",
+      "Tailwind CSS",
+      "REST",
+      "CMS",
+      "Agile"
+    ],
+    "encaje": 28,
+    "motivo": "Marca React y Next.js como 'must have', dos de tus principales carencias (React profesional y meta-frameworks React), lo que penaliza fuerte el encaje pese a tu manejo de TypeScript y CSS.",
+    "fecha_escaneo": "2026-07-15"
   }
 ]
